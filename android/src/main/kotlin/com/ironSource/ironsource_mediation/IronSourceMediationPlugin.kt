@@ -39,7 +39,7 @@ class IronSourceMediationPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel: MethodChannel
-  private var activity: FlutterFragment? = null
+  private var activity: FlutterFragmentActivity? = null
 
   // Banner related
   private var mBannerContainer: FrameLayout? = null
@@ -766,7 +766,7 @@ class IronSourceMediationPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
 
   /** region ActivityAware =======================================================================*/
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    activity = binding.activity.flutterFragment as FlutterFragment
+    activity = binding.activity.flutterFragment as FlutterFragmentActivity
     activity?.lifecycle?.addObserver(this)
   }
 
@@ -776,7 +776,7 @@ class IronSourceMediationPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    activity = binding.activity.flutterFragment as FlutterFragment
+    activity = binding.activity.flutterFragment as FlutterFragmentActivity
     activity?.lifecycle?.addObserver(this)
   }
 
