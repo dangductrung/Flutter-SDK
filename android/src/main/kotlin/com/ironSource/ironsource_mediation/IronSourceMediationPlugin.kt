@@ -767,7 +767,7 @@ class IronSourceMediationPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
 
   /** region ActivityAware =======================================================================*/
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    activity = binding.activity.flutterFragment as FragmentActivity
+    activity = binding.activity as FragmentActivity
     activity?.lifecycle?.addObserver(this)
   }
 
@@ -777,7 +777,7 @@ class IronSourceMediationPlugin : FlutterPlugin, MethodCallHandler, ActivityAwar
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    activity = binding.activity.flutterFragment as FragmentActivity
+    activity = binding.activity as FragmentActivity
     activity?.lifecycle?.addObserver(this)
   }
 
